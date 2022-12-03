@@ -1,13 +1,16 @@
 {
   "name": "personal-portfolio-template",
+  "description": "Personal Portfolio Template - React & Next.js",
   "version": "0.1.0",
   "private": true,
+  "author": "Tomás Keong",
+  "license": "MIT",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "postinstall": "husky install"
+    "prepare": "husky install"
   },
   "dependencies": {
     "@types/node": "18.11.10",
