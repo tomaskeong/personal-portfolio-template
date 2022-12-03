@@ -1,8 +1,10 @@
+import useDocTitle from '@utils/hooks/useDocTitle';
 import Head from 'next/head';
 import Image from 'next/image';
 import styles from '../styles/Home.module.css';
 
 export default function Home() {
+  useDocTitle('Personal Portfolio - Home');
   return (
     <div className={styles.container}>
       <Head>
