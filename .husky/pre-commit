@@ -1,8 +1,20 @@
 #!/bin/sh
 . "$(dirname "$0")/_/husky.sh"
 
-# Add the following
-yarn lint-staged
+echo '🏗️👷 Linting your project before committing 👷‍♂️🏗️'
+echo 'please be patient, this may take a while...'
+
+# Check ESLint Standards
+yarn lint ||
+(
+    echo '🔨❌ We detected a problem in your code. Check linter ❌🔨
+          Run yarn lint, add changes and try committing again.';
+    false;
+)
+
+echo '🎉 No error found: committing this now.... 🚀'
+
+npx lint-staged
 
 # If using npm, remove above and uncomment below
 # npm run lint-staged
