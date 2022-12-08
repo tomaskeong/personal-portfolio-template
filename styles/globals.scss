@@ -2,8 +2,6 @@ html,
 body {
   padding: 0;
   margin: 0;
-  font-family: 'Montserrat', sans-serif;
-  -webkit-font-smoothing: antialiased;
 }
 
 a {
@@ -15,12 +13,16 @@ a {
   box-sizing: border-box;
 }
 
+header {
+  display: flex;
+  justify-content: center;
+}
+
 @media (prefers-color-scheme: dark) {
   html {
     color-scheme: dark;
   }
   body {
-    color: white;
     background: black;
   }
 }

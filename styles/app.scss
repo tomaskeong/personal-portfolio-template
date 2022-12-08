@@ -1,0 +1,14 @@
+.topOverlay {
+  position: fixed;
+  width: 100%;
+  height: 136px;
+  opacity: 0.9;
+  filter: blur(15px);
+  background: black;
+  margin-top: -30px;
+}
+
+header {
+  display: flex;
+  justify-content: center;
+}
