@@ -23,6 +23,9 @@ header {
     color-scheme: dark;
   }
   body {
-    background: black;
+    background: var(--color-background-dark);
+    &.light {
+      background: var(--color-background-light);
+    }
   }
 }

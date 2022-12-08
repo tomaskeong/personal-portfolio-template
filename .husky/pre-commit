@@ -5,7 +5,7 @@ echo '🏗️👷 Linting your project before committing 👷‍♂️🏗️'
 echo 'please be patient, this may take a while...'
 
 # Check ESLint Standards
-yarn lint ||
+yarn lint:check ||
 (
     echo '🔨❌ We detected a problem in your code. Check linter ❌🔨
           Run yarn lint, add changes and try committing again.';

@@ -1,7 +1,8 @@
-import styles from './Menu.module.scss';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { IconProp } from '@fortawesome/fontawesome-svg-core';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { motion } from 'framer-motion';
+
+import styles from './Menu.module.scss';
 
 export type MenuEntryProps = {
   title: string;

@@ -1,15 +1,15 @@
 import '@styles/globals.scss';
 import '@styles/app.scss';
 import '@styles/style.scss';
-import type { AppProps } from 'next/app';
+import '@fortawesome/fontawesome-svg-core/styles.css';
+
+import Footer from '@components/footer';
 import Menu from '@components/menu';
 import MenuEntry from '@components/menu/MenuEntry';
-import Footer from '@components/footer';
-
 import { config } from '@fortawesome/fontawesome-svg-core';
-import '@fortawesome/fontawesome-svg-core/styles.css';
+import type { AppProps } from 'next/app';
 config.autoAddCss = false;
-import { faHome, faUser, faBriefcase, faEnvelope, faFilePen } from '@fortawesome/free-solid-svg-icons';
+import { faBriefcase, faEnvelope, faFilePen, faHome, faUser } from '@fortawesome/free-solid-svg-icons';
 
 export default function App({ Component, pageProps }: AppProps) {
   return (

@@ -20,13 +20,17 @@ Typography
   --text-xxl: calc(1em * var(--text-scale-ratio) * var(--text-scale-ratio) * var(--text-scale-ratio) * var(--text-scale-ratio));
   --text-xxxl: calc(1em * var(--text-scale-ratio) * var(--text-scale-ratio) * var(--text-scale-ratio) * var(--text-scale-ratio) * var(--text-scale-ratio));
 
-  --color-text: white;
+  --color-text-light: white;
+  --color-text-dark: #2a2a2a;
 }
 
 body {
   font-size: var(--text-base-size);
   font-family: var(--font-primary);
-  color: var(--color-text);
+  color: var(--color-text-light);
+  &.light {
+    color: var(--color-text-dark);
+  }
 }
 
 /* text size */
