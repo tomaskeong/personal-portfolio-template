@@ -1,12 +1,26 @@
 /* -------------------------------- 
 
-Colors 
+Colors
 
 -------------------------------- */
 
 :root {
-  --color-background-dark: #111111;
-  --color-background-light: white;
-  --color-elements-background: #333333;
   --color-main-primary: #fbab0a;
+
+  body,
+  body[data-theme='dark'] {
+    --color-background: 17, 17, 17; // using rgb triplet to allow changing the alpha channel
+    --color-background-hex: #111111;
+    --color-elements-background: #333333;
+    --color-elements: #aaaaaa;
+    --color-text: white;
+  }
+
+  body[data-theme='light'] {
+    --color-background: 0, 0, 0;
+    --color-background-hex: #ffffff;
+    --color-elements-background: #333333;
+    --color-elements: #666666;
+    --color-text: #2a2a2a;
+  }
 }

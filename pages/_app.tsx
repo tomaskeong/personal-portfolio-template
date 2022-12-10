@@ -10,11 +10,15 @@ import { config } from '@fortawesome/fontawesome-svg-core';
 import type { AppProps } from 'next/app';
 config.autoAddCss = false;
 import { faBriefcase, faEnvelope, faFilePen, faHome, faUser } from '@fortawesome/free-solid-svg-icons';
+import dynamic from 'next/dynamic';
 
+const ThemeSwitch = dynamic(() => import('@components/theme-switch/index'), {
+  ssr: false,
+});
 export default function App({ Component, pageProps }: AppProps) {
   return (
     <>
-      <section className="topOverlay" />
+      <section className="top-overlay" />
       <header>
         <Menu>
           <MenuEntry title="Home" icon={faHome} />
@@ -23,6 +27,7 @@ export default function App({ Component, pageProps }: AppProps) {
           <MenuEntry title="Contact" icon={faEnvelope} />
           <MenuEntry title="Blog" icon={faFilePen} />
         </Menu>
+        <ThemeSwitch />
       </header>
       <Component {...pageProps} />
       <Footer />

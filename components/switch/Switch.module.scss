@@ -1,0 +1,49 @@
+.switchCheckbox {
+  height: 0;
+  width: 0;
+  visibility: hidden;
+}
+
+.switchLabel {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
+  width: 60px;
+  height: 35px;
+  background: var(--color-elements-background);
+  border-radius: 100px;
+  position: relative;
+  transition: background-color 0.2s;
+
+  .switchButton {
+    content: '';
+    position: absolute;
+    top: 2.65px;
+    left: 2.5px;
+    width: 30px;
+    height: 30px;
+    border-radius: 45px;
+    transition: 0.2s;
+    background: var(--color-elements);
+    display: flex;
+    align-items: center;
+    img {
+      margin: auto;
+      user-select: none;
+      -moz-user-select: none;
+      -webkit-user-drag: none;
+      -webkit-user-select: none;
+      -ms-user-select: none;
+    }
+  }
+}
+
+.switchCheckbox:checked + .switchLabel .switchButton {
+  left: calc(100% - 2.5px);
+  transform: translateX(-100%);
+}
+
+.switchLabel:active .switchButton {
+  width: 35px;
+}

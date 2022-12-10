@@ -1,9 +1,16 @@
+@import '@styles/breakpoints';
+
 .menu {
   display: flex;
   position: fixed;
   top: var(--space-lg);
-  gap: var(--space-md);
-  z-index: 1;
+  gap: var(--space-lg);
+
+  @include breakpoint($until: 'md') {
+    gap: unset;
+    width: 100%;
+    justify-content: space-around;
+  }
 }
 
 .menuItem {
@@ -13,10 +20,6 @@
   border-radius: 50%;
   cursor: pointer;
   transition: 0.3s;
-  &:hover,
-  &.active {
-    background: var(--color-main-primary);
-  }
 
   .iconContainer {
     display: flex;
@@ -26,8 +29,15 @@
     border-radius: 50%;
     svg {
       margin: 0 auto;
-      display: block;
-      color: #e3e3e3;
+      color: var(--color-elements);
+    }
+  }
+
+  &:hover,
+  &.active {
+    background: var(--color-main-primary);
+    svg {
+      color: white;
     }
   }
 

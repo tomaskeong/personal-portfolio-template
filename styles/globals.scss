@@ -18,14 +18,8 @@ header {
   justify-content: center;
 }
 
-@media (prefers-color-scheme: dark) {
-  html {
-    color-scheme: dark;
-  }
-  body {
-    background: var(--color-background-dark);
-    &.light {
-      background: var(--color-background-light);
-    }
-  }
+body {
+  background: var(--color-background-hex);
+  color: var(--color-text);
+  transition: 0.3s;
 }

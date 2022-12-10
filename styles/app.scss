@@ -1,14 +1,26 @@
-.topOverlay {
+@import '@styles/breakpoints';
+
+.top-overlay {
   position: fixed;
   width: 100%;
   height: 136px;
-  opacity: 0.9;
-  filter: blur(15px);
-  background: var(--color-background-dark);
-  margin-top: -30px;
+  background: linear-gradient(
+    to bottom,
+    rgba(var(--color-background), 1) 0%,
+    rgba(var(--color-background), 0.3) 90%,
+    rgba(var(--color-background), 0) 100%
+  );
 }
 
-header {
-  display: flex;
-  justify-content: center;
+.theme-switch {
+  position: fixed;
+  right: var(--space-lg);
+  top: var(--space-sm);
+
+  @include breakpoint($until: 'md') {
+    top: unset;
+    right: unset;
+    bottom: var(--space-sm);
+    left: var(--space-lg);
+  }
 }
