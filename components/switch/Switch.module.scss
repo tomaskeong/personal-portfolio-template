@@ -20,14 +20,16 @@
     content: '';
     position: absolute;
     top: 2.65px;
-    left: 2.5px;
     width: 30px;
     height: 30px;
     border-radius: 45px;
-    transition: 0.2s;
     background: var(--color-elements);
     display: flex;
     align-items: center;
+    > div {
+      display: flex;
+      width: 100%;
+    }
     img {
       margin: auto;
       user-select: none;
@@ -37,13 +39,4 @@
       -ms-user-select: none;
     }
   }
-}
-
-.switchCheckbox:checked + .switchLabel .switchButton {
-  left: calc(100% - 2.5px);
-  transform: translateX(-100%);
-}
-
-.switchLabel:active .switchButton {
-  width: 35px;
 }

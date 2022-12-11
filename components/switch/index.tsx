@@ -1,11 +1,19 @@
-import Image, { StaticImageData } from 'next/image';
+import { motion } from 'framer-motion';
+import Image from 'next/image';
 
 import styles from './Switch.module.scss';
 type SwitchProps = {
   id: string;
   checked: boolean;
   onChange: (checked: boolean) => void;
-  imageSrc?: StaticImageData;
+  img?: { src: string; alt: string };
+  ariaLabel: string;
+  animate?: boolean;
+};
+
+const switchButtonMotion = {
+  checked: { x: 'calc(100% - 2.5px)', transition: { duration: 0.2 } },
+  notChecked: { x: '2.5px', transition: { duration: 0.2 } },
 };
 
 function Switch(props: SwitchProps) {
@@ -13,12 +21,28 @@ function Switch(props: SwitchProps) {
     props.onChange(event.target.checked);
   };
 
+  const renderImage = () => {
+    if (!props.img) return null;
+    const SwitchBtnImage = <Image src={props.img.src} alt={props.img.alt} width={24} height={24} />;
+    if (props.animate) {
+      return (
+        <motion.div key={props.img.src} initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
+          {SwitchBtnImage}
+        </motion.div>
+      );
+    } else {
+      return SwitchBtnImage;
+    }
+  };
+
   return (
     <>
-      <input className={styles.switchCheckbox} id={props.id} type="checkbox" onChange={handleChange} checked={props.checked} />
-      <label className={styles.switchLabel} htmlFor={props.id}>
-        <span className={styles.switchButton}>{props.imageSrc && <Image src={props.imageSrc} alt="Theme Image" width={24} height={24} />}</span>
-      </label>
+      <input aria-label={props.ariaLabel} className={styles.switchCheckbox} id={props.id} type="checkbox" onChange={handleChange} checked={props.checked} />
+      <motion.label className={styles.switchLabel} htmlFor={props.id}>
+        <motion.span variants={switchButtonMotion} animate={props.checked ? 'checked' : 'notChecked'} initial={false} className={styles.switchButton}>
+          {renderImage()}
+        </motion.span>
+      </motion.label>
     </>
   );
 }

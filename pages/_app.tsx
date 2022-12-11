@@ -7,6 +7,7 @@ import Footer from '@components/footer';
 import Menu from '@components/menu';
 import MenuEntry from '@components/menu/MenuEntry';
 import { config } from '@fortawesome/fontawesome-svg-core';
+import { motion } from 'framer-motion';
 import type { AppProps } from 'next/app';
 config.autoAddCss = false;
 import { faBriefcase, faEnvelope, faFilePen, faHome, faUser } from '@fortawesome/free-solid-svg-icons';
@@ -18,6 +19,7 @@ const ThemeSwitch = dynamic(() => import('@components/theme-switch/index'), {
 export default function App({ Component, pageProps }: AppProps) {
   return (
     <>
+      <motion.div animate />
       <section className="top-overlay" />
       <header>
         <Menu>

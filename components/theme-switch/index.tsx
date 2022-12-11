@@ -20,8 +20,9 @@ function ThemeSwitch() {
         checked={activeTheme === 'light'}
         onChange={() => setActiveTheme(oppositeTheme)}
         id="theme-switch"
-        imageSrc={activeTheme === 'light' ? themeLight : themeDark}
-        aria-label={`Change to ${oppositeTheme} mode`}
+        img={{ src: activeTheme === 'light' ? themeLight.src : themeDark.src, alt: 'Theme Image' }}
+        ariaLabel={`Change to ${oppositeTheme} mode`}
+        animate={true}
       />
     </div>
   );
