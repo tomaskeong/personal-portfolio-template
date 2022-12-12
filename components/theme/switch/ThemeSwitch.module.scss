@@ -1,0 +1,14 @@
+@import '@styles/breakpoints';
+
+.themeSwitch {
+  position: fixed;
+  right: var(--space-lg);
+  top: var(--space-sm);
+
+  @include breakpoint($until: 'md') {
+    top: unset;
+    right: unset;
+    bottom: var(--space-md);
+    left: var(--space-sm);
+  }
+}

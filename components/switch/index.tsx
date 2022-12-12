@@ -1,7 +1,10 @@
+import { mediaQueries } from '@utils/mediaQueries';
 import { motion } from 'framer-motion';
 import Image from 'next/image';
+import { useMediaQuery } from 'react-responsive';
 
 import styles from './Switch.module.scss';
+
 type SwitchProps = {
   id: string;
   checked: boolean;
@@ -11,15 +14,22 @@ type SwitchProps = {
   animate?: boolean;
 };
 
-const switchButtonMotion = {
-  checked: { x: 'calc(100% - 2.5px)', transition: { duration: 0.2 } },
-  notChecked: { x: '2.5px', transition: { duration: 0.2 } },
-};
-
 function Switch(props: SwitchProps) {
+  const isMd = useMediaQuery(mediaQueries.md);
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     props.onChange(event.target.checked);
   };
+
+  const transition = { transition: { duration: 0.2 } };
+  const switchButtonMotion = !isMd
+    ? {
+        checked: { x: 'calc(100% - 2.5px)', y: 0, transition },
+        notChecked: { x: '2.5px', y: 0, transition },
+      }
+    : {
+        checked: { x: '2.5px', y: 'calc(100% - 2.5px)', transition },
+        notChecked: { x: '2.5px', y: '0px', transition },
+      };
 
   const renderImage = () => {
     if (!props.img) return null;

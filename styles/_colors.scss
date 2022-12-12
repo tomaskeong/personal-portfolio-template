@@ -12,15 +12,15 @@ Colors
     --color-background: 17, 17, 17; // using rgb triplet to allow changing the alpha channel
     --color-background-hex: #111111;
     --color-elements-background: #333333;
-    --color-elements: #aaaaaa;
+    --color-elements: #dcdcdc;
     --color-text: white;
   }
 
   body[data-theme='light'] {
     --color-background: 255, 255, 255;
     --color-background-hex: #ffffff;
-    --color-elements-background: #333333;
+    --color-elements-background: #e2e2e2;
     --color-elements: #666666;
-    --color-text: #2a2a2a;
+    --color-text: #505050;
   }
 }

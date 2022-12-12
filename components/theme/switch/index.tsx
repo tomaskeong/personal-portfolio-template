@@ -3,6 +3,8 @@ import themeLight from '@assets/images/theme-light.png';
 import Switch from '@components/switch';
 import { useEffect, useState } from 'react';
 
+import styles from './ThemeSwitch.module.scss';
+
 type Theme = 'dark' | 'light' | undefined;
 
 function ThemeSwitch() {
@@ -15,7 +17,7 @@ function ThemeSwitch() {
   }, [activeTheme]);
 
   return (
-    <div className="theme-switch">
+    <div className={styles.themeSwitch}>
       <Switch
         checked={activeTheme === 'light'}
         onChange={() => setActiveTheme(oppositeTheme)}
