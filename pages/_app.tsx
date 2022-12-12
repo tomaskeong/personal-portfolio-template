@@ -1,20 +1,24 @@
 import '@styles/globals.scss';
 import '@styles/app.scss';
 import '@styles/style.scss';
-import type { AppProps } from 'next/app';
+import '@fortawesome/fontawesome-svg-core/styles.css';
+
+import Footer from '@components/footer';
 import Menu from '@components/menu';
 import MenuEntry from '@components/menu/MenuEntry';
-import Footer from '@components/footer';
-
 import { config } from '@fortawesome/fontawesome-svg-core';
-import '@fortawesome/fontawesome-svg-core/styles.css';
+import type { AppProps } from 'next/app';
 config.autoAddCss = false;
-import { faHome, faUser, faBriefcase, faEnvelope, faFilePen } from '@fortawesome/free-solid-svg-icons';
+import { faBriefcase, faEnvelope, faFilePen, faHome, faUser } from '@fortawesome/free-solid-svg-icons';
+import dynamic from 'next/dynamic';
 
+const ThemeSwitch = dynamic(() => import('@components/theme/switch/index'), {
+  ssr: false,
+});
 export default function App({ Component, pageProps }: AppProps) {
   return (
     <>
-      <section className="topOverlay" />
+      <section className="top-overlay" />
       <header>
         <Menu>
           <MenuEntry title="Home" icon={faHome} />
@@ -23,8 +27,14 @@ export default function App({ Component, pageProps }: AppProps) {
           <MenuEntry title="Contact" icon={faEnvelope} />
           <MenuEntry title="Blog" icon={faFilePen} />
         </Menu>
+        <ThemeSwitch />
       </header>
-      <Component {...pageProps} />
+      <main>
+        <div className="page-container">
+          <Component {...pageProps} />
+        </div>
+      </main>
+
       <Footer />
     </>
   );

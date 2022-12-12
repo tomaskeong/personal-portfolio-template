@@ -9,7 +9,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint",
+    "lint:check": "next lint",
+    "lint:fix": "next lint --fix",
     "prepare": "husky install"
   },
   "dependencies": {
@@ -36,6 +37,7 @@
     "eslint-plugin-simple-import-sort": "^8.0.0",
     "husky": "^8.0.2",
     "prettier": "^2.8.0",
+    "react-responsive": "^9.0.2",
     "sass": "^1.56.1"
   }
 }

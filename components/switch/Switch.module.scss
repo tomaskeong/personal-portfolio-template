@@ -1,0 +1,49 @@
+@import '@styles/breakpoints';
+
+.switchCheckbox {
+  height: 0;
+  width: 0;
+  visibility: hidden;
+}
+
+.switchLabel {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
+  width: 60px;
+  height: 35px;
+  background: var(--color-elements-background);
+  border-radius: 100px;
+  position: relative;
+  transition: background-color 0.2s;
+
+  @include breakpoint($until: 'md') {
+    width: 35px;
+    height: 60px;
+  }
+
+  .switchButton {
+    content: '';
+    position: absolute;
+    top: 2.65px;
+    width: 30px;
+    height: 30px;
+    border-radius: 45px;
+    background: var(--color-elements);
+    display: flex;
+    align-items: center;
+    > div {
+      display: flex;
+      width: 100%;
+    }
+    img {
+      margin: auto;
+      user-select: none;
+      -moz-user-select: none;
+      -webkit-user-drag: none;
+      -webkit-user-select: none;
+      -ms-user-select: none;
+    }
+  }
+}

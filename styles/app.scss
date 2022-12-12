@@ -1,14 +1,25 @@
-.topOverlay {
+@import '@styles/breakpoints';
+
+.top-overlay {
   position: fixed;
   width: 100%;
   height: 136px;
-  opacity: 0.9;
-  filter: blur(15px);
-  background: black;
-  margin-top: -30px;
+  background: linear-gradient(to bottom, rgba(var(--color-background), 1) 0%, rgba(var(--color-background), 0.3) 90%, rgba(var(--color-background), 0) 100%);
+}
+body[data-theme='light'] .top-overlay {
+  background: linear-gradient(to bottom, rgba(var(--color-background), 1) 0%, rgba(var(--color-background), 0) 100%);
 }
 
-header {
+main {
+  min-height: 100vh;
+  padding: var(--space-xhuge) 0;
+  flex: 1;
   display: flex;
+  flex-direction: column;
   justify-content: center;
+  align-items: center;
+}
+
+.page-container {
+  padding: 0 var(--space-xxl);
 }
