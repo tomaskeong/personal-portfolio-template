@@ -55,7 +55,7 @@ function ColorPicker() {
       {open && (
         <motion.div
           className={styles.pickerContainer}
-          initial={{ opacity: 0, y: 0 }}
+          initial={{ opacity: 0 }}
           animate={{ opacity: 1, y: !isMd ? 'var(--space-xs)' : 'calc(var(--space-xs) * -1)' }}
           transition={{ duration: 0.2, bounce: 0 }}
         >
