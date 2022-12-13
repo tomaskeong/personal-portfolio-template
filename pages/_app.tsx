@@ -9,6 +9,7 @@ import MenuEntry from '@components/menu/MenuEntry';
 import { config } from '@fortawesome/fontawesome-svg-core';
 import type { AppProps } from 'next/app';
 config.autoAddCss = false;
+import ColorPicker from '@components/color-picker';
 import { faBriefcase, faEnvelope, faFilePen, faHome, faUser } from '@fortawesome/free-solid-svg-icons';
 import dynamic from 'next/dynamic';
 
@@ -28,6 +29,7 @@ export default function App({ Component, pageProps }: AppProps) {
           <MenuEntry title="Blog" icon={faFilePen} />
         </Menu>
         <ThemeSwitch />
+        <ColorPicker />
       </header>
       <main>
         <div className="page-container">

@@ -11,6 +11,9 @@ export default function Document() {
                 : 'light'
     }
     document.body.dataset.theme = getUserPreference();
+    if (window.localStorage.getItem('color-main-primary')) {
+      document.documentElement.style.setProperty('--color-main-primary', window.localStorage.getItem('color-main-primary'));
+    }
   `;
   return (
     <Html>
