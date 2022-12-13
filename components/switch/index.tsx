@@ -47,9 +47,21 @@ function Switch(props: SwitchProps) {
 
   return (
     <>
-      <input aria-label={props.ariaLabel} className={styles.switchCheckbox} id={props.id} type="checkbox" onChange={handleChange} checked={props.checked} />
+      <input
+        aria-label={props.ariaLabel}
+        className={styles.switchCheckbox}
+        id={props.id}
+        type="checkbox"
+        onChange={handleChange}
+        checked={props.checked}
+      />
       <motion.label className={styles.switchLabel} htmlFor={props.id}>
-        <motion.span variants={switchButtonMotion} animate={props.checked ? 'checked' : 'notChecked'} initial={false} className={styles.switchButton}>
+        <motion.span
+          variants={switchButtonMotion}
+          animate={props.checked ? 'checked' : 'notChecked'}
+          initial={false}
+          className={styles.switchButton}
+        >
           {renderImage()}
         </motion.span>
       </motion.label>
