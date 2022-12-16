@@ -1,5 +1,5 @@
 import styles from '@styles/Home.module.scss';
-import useDocTitle from '@utils/hooks/useDocTitle';
+import useDocTitle from 'hooks/useDocTitle';
 
 export default function Home() {
   useDocTitle('Personal Portfolio - Home');
