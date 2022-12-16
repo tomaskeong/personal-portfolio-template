@@ -1,9 +1,10 @@
 import { faBrush } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import useOutsideClose from '@utils/hooks/useOutsideClose';
 import { mediaQueries } from '@utils/mediaQueries';
+import { ThemeContext } from 'context/Theme';
 import { motion } from 'framer-motion';
-import { createRef, useEffect, useRef, useState } from 'react';
+import useOutsideClose from 'hooks/useOutsideClose';
+import { createRef, useContext, useEffect, useState } from 'react';
 import { Color, ColorResult, GithubPicker } from 'react-color';
 import { useMediaQuery } from 'react-responsive';
 
@@ -28,19 +29,26 @@ function ColorPicker() {
   const isMd = useMediaQuery(mediaQueries.md);
   const colorPickerRef = createRef<HTMLDivElement>();
   const clickedOutside = useOutsideClose(colorPickerRef);
+  const { setMainPrimaryColor } = useContext(ThemeContext);
 
   const onChangeColor = (color: ColorResult) => {
     const selectedColor = color.hex;
     document.documentElement.style.setProperty('--color-main-primary', selectedColor);
     localStorage.setItem('color-main-primary', selectedColor);
     setCurrentColor(selectedColor);
+    setMainPrimaryColor(selectedColor as `#${string}`);
     setOpen(false);
   };
 
   useEffect(() => {
-    const currentColorStorage = window.localStorage.getItem('color-main-primary');
+    let currentColorStorage = window.localStorage.getItem('color-main-primary');
+    if (!currentColorStorage) {
+      currentColorStorage = getComputedStyle(document.documentElement).getPropertyValue('--color-main-primary').trim();
+      localStorage.setItem('color-main-primary', currentColorStorage);
+    }
     currentColorStorage && setCurrentColor(currentColorStorage);
-  }, []);
+    setMainPrimaryColor(currentColorStorage as `#${string}`);
+  }, [setMainPrimaryColor]);
 
   useEffect(() => {
     if (clickedOutside) setOpen(false);

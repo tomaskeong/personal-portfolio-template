@@ -11,7 +11,8 @@ export default function Document() {
                 : 'light'
     }
     document.body.dataset.theme = getUserPreference();
-    if (window.localStorage.getItem('color-main-primary')) {
+    const colorMainPrimary = window.localStorage.getItem('color-main-primary');
+    if (colorMainPrimary) {
       document.documentElement.style.setProperty('--color-main-primary', window.localStorage.getItem('color-main-primary'));
     }
   `;

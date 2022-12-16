@@ -22,7 +22,7 @@ function MenuEntry({ title, icon }: MenuEntryProps) {
           <motion.div variants={menuItemTitleMotion} className={styles.pill}>
             {title.toUpperCase()}
           </motion.div>
-          <FontAwesomeIcon icon={icon} />
+          <FontAwesomeIcon icon={icon} style={{ fontSize: '18px' }} />
         </div>
       </motion.div>
     </>
