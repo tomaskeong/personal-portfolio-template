@@ -11,16 +11,13 @@ function Cursor() {
   const { mainPrimaryColor } = useContext(ThemeContext);
 
   return (
-    <>
-      {mainPrimaryColor !== null && mainPrimaryColor !== '' && (
-        <AnimatedCursor
-          outerSize={50}
-          outerScale={1}
-          trailingSpeed={4}
-          color={hexRgb(mainPrimaryColor, { format: 'array' }).slice(0, -1).toString()}
-        />
-      )}
-    </>
+    <AnimatedCursor
+      outerSize={50}
+      outerScale={1}
+      trailingSpeed={4}
+      color={hexRgb(mainPrimaryColor, { format: 'array' }).slice(0, -1).toString()}
+      clickables={['.interactable']} // without this the animated cursor freezes sometimes when interacting
+    />
   );
 }
 
