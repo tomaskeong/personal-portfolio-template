@@ -1,4 +1,4 @@
-import { createContext, Dispatch, SetStateAction, useState } from 'react';
+import { createContext, Dispatch, SetStateAction, useMemo, useState } from 'react';
 
 type ThemeContextType = {
   mainPrimaryColor: `#${string}` | undefined | null;
@@ -8,7 +8,10 @@ export const ThemeContext = createContext<ThemeContextType>({ mainPrimaryColor: 
 
 const ThemeProvider: React.FC<{ children?: React.ReactNode }> = ({ children }) => {
   const [mainPrimaryColor, setMainPrimaryColor] = useState<`#${string}` | null>();
-  return <ThemeContext.Provider value={{ mainPrimaryColor, setMainPrimaryColor }}>{children}</ThemeContext.Provider>;
+
+  const contextValue = useMemo(() => ({ mainPrimaryColor, setMainPrimaryColor }), [mainPrimaryColor]);
+
+  return <ThemeContext.Provider value={contextValue}>{children}</ThemeContext.Provider>;
 };
 
 export default ThemeProvider;

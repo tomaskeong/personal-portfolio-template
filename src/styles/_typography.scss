@@ -26,31 +26,41 @@ Typography
 body {
   font-size: var(--text-base-size);
   font-family: var(--font-primary);
+  line-height: 1rem;
 }
 
 /* text size */
 .text--xxxl {
   font-size: var(--text-xxxl);
+  line-height: 4rem;
 }
 
 h1,
 .text--xxl {
   font-size: var(--text-xxl);
+  line-height: 3.5rem;
 }
 
 h2,
 .text--xl {
   font-size: var(--text-xl);
+  line-height: 3rem;
 }
 
 h3,
 .text--lg {
   font-size: var(--text-lg);
+  line-height: 2.5rem;
 }
 
 h4,
 .text--md {
   font-size: var(--text-md);
+  line-height: 2rem;
+}
+
+p {
+  line-height: 1.5rem;
 }
 
 .text--sm,

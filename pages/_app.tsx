@@ -5,13 +5,11 @@ import '@fortawesome/fontawesome-svg-core/styles.css';
 
 import Footer from '@components/footer';
 import Menu from '@components/menu';
-import MenuEntry from '@components/menu/MenuEntry';
 import { config } from '@fortawesome/fontawesome-svg-core';
-import type { AppProps } from 'next/app';
 config.autoAddCss = false;
 import ColorPicker from '@components/color-picker';
-import { faAddressCard, faBriefcase, faDollar, faEnvelope, faFilePen, faHandshake, faHome } from '@fortawesome/free-solid-svg-icons';
 import ThemeProvider from 'context/Theme';
+import type { AppProps } from 'next/app';
 import dynamic from 'next/dynamic';
 
 const ThemeSwitch = dynamic(() => import('@components/theme-switch/index'), {
@@ -27,15 +25,7 @@ export default function App({ Component, pageProps }: AppProps) {
       <Cursor />
       <header>
         <section className="top-overlay" />
-        <Menu>
-          <MenuEntry title="Home" icon={faHome} />
-          <MenuEntry title="Resume" icon={faAddressCard} />
-          <MenuEntry title="Portfolio" icon={faBriefcase} />
-          <MenuEntry title="Clients" icon={faHandshake} />
-          <MenuEntry title="Pricing" icon={faDollar} />
-          <MenuEntry title="Contact" icon={faEnvelope} />
-          <MenuEntry title="Blog" icon={faFilePen} />
-        </Menu>
+        <Menu />
         <ThemeSwitch />
         <ColorPicker />
       </header>

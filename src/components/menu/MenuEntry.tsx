@@ -11,7 +11,7 @@ export type MenuEntryProps = {
 
 const menuItemTitleMotion = {
   rest: { scale: 0, y: 10 },
-  hover: { scale: 0.9, y: 40, transition: { duration: 0.2 } },
+  hover: { scale: 0.9, y: 45, transition: { duration: 0.2 } },
 };
 
 function MenuEntry({ title, icon }: MenuEntryProps) {

@@ -1,7 +1,7 @@
 import themeDark from '@assets/images/theme-dark.png';
 import themeLight from '@assets/images/theme-light.png';
 import Switch from '@components/switch';
-import { useEffect, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 
 import styles from './ThemeSwitch.module.scss';
 
@@ -16,11 +16,15 @@ function ThemeSwitch() {
     window.localStorage.setItem('theme', activeTheme ?? '');
   }, [activeTheme]);
 
+  const changeTheme = useCallback(() => {
+    setActiveTheme(oppositeTheme);
+  }, [oppositeTheme]);
+
   return (
     <div className={styles.themeSwitch}>
       <Switch
         checked={activeTheme === 'light'}
-        onChange={() => setActiveTheme(oppositeTheme)}
+        onChange={changeTheme}
         id="theme-switch"
         img={{ src: activeTheme === 'light' ? themeLight.src : themeDark.src, alt: 'Theme Image' }}
         ariaLabel={`Change to ${oppositeTheme} mode`}

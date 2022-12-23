@@ -3,7 +3,8 @@
 .themeSwitch {
   position: fixed;
   right: var(--space-lg);
-  top: var(--space-sm);
+  top: var(--space-lg);
+  z-index: 1;
 
   @include breakpoint($until: 'md') {
     top: unset;

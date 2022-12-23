@@ -6,6 +6,7 @@
   left: var(--space-lg);
   display: flex;
   flex-direction: column;
+  z-index: 1;
 
   @include breakpoint($until: 'md') {
     top: unset;

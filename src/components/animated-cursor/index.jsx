@@ -16,7 +16,7 @@ function Cursor() {
       outerScale={1}
       trailingSpeed={4}
       color={hexRgb(mainPrimaryColor, { format: 'array' }).slice(0, -1).toString()}
-      clickables={['.interactable']} // without this the animated cursor freezes sometimes when interacting
+      clickables={['.foo']} // without this the animated cursor freezes sometimes when interacting
     />
   );
 }

@@ -14,14 +14,15 @@
     "isolatedModules": true,
     "jsx": "preserve",
     "incremental": true,
-    "baseUrl": ".",
+    "baseUrl": "./src",
     "paths": {
       "@assets/*": ["assets/*"],
       "@styles/*": ["styles/*"],
       "@components/*": ["components/*"],
-      "@utils/*": ["utils/*"]
+      "@utils/*": ["utils/*"],
+      "@config/*": ["config/*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "pages/_document.js", "components/animated-cursor/index.jsx"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "pages/_document.tsx", "components/animated-cursor/index.jsx"],
   "exclude": ["node_modules"]
 }
