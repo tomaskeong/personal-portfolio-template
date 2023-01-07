@@ -1,7 +1,7 @@
+import useMediaQuery from '@mui/material/useMediaQuery';
 import { mediaQueries } from '@utils/mediaQueries';
-import { motion } from 'framer-motion';
+import { motion, Variants } from 'framer-motion';
 import Image from 'next/image';
-import { useMediaQuery } from 'react-responsive';
 
 import styles from './Switch.module.scss';
 
@@ -21,7 +21,7 @@ function Switch(props: SwitchProps) {
   };
 
   const transition = { transition: { duration: 0.2 } };
-  const switchButtonMotion = !isMd
+  const switchButtonMotion: Variants = !isMd
     ? {
         checked: { x: 'calc(100% - 2.5px)', y: 0, transition },
         notChecked: { x: '2.5px', y: 0, transition },

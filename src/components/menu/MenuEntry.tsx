@@ -1,6 +1,6 @@
 import { IconProp } from '@fortawesome/fontawesome-svg-core';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { motion } from 'framer-motion';
+import { motion, Variants } from 'framer-motion';
 
 import styles from './Menu.module.scss';
 
@@ -9,7 +9,7 @@ export type MenuEntryProps = {
   icon: IconProp;
 };
 
-const menuItemTitleMotion = {
+const menuItemTitleMotion: Variants = {
   rest: { scale: 0, y: 10 },
   hover: { scale: 0.9, y: 45, transition: { duration: 0.2 } },
 };

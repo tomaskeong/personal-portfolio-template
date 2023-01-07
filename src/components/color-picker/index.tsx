@@ -1,12 +1,12 @@
 import { faBrush } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import useMediaQuery from '@mui/material/useMediaQuery';
 import { mediaQueries } from '@utils/mediaQueries';
 import { ThemeContext } from 'context/Theme';
 import { motion } from 'framer-motion';
 import useOutsideClose from 'hooks/useOutsideClose';
 import { createRef, useContext, useEffect, useState } from 'react';
 import { Color, ColorResult, GithubPicker } from 'react-color';
-import { useMediaQuery } from 'react-responsive';
 
 import styles from './ColorPicker.module.scss';
 const colors = [

@@ -13,7 +13,7 @@ body[data-theme='light'] .top-overlay {
 
 main {
   min-height: 100vh;
-  padding: var(--space-xhuge) 0;
+  padding: var(--space-xhuge) 0 var(--space-huge) 0;
   flex: 1;
   display: flex;
   flex-direction: column;
@@ -22,6 +22,13 @@ main {
 }
 
 .page-container {
-  padding: 0 var(--space-lg);
+  padding: 0 var(--space-xhuge);
   max-width: map-get($breakpoints, xxl);
+
+  @include breakpoint($from: 'lg', $until: 'xl') {
+    padding: 0 var(--space-huge);
+  }
+  @include breakpoint($until: 'lg') {
+    padding: 0 var(--space-xxxl);
+  }
 }
