@@ -1,0 +1,34 @@
+@import '@styles/breakpoints';
+
+.top-overlay {
+  position: fixed;
+  width: 100%;
+  height: 136px;
+  background: linear-gradient(to bottom, rgba(var(--color-background), 1) 0%, rgba(var(--color-background), 0) 100%);
+  z-index: 1;
+}
+body[data-theme='light'] .top-overlay {
+  background: linear-gradient(to bottom, rgba(var(--color-background), 1) 0%, rgba(var(--color-background), 0) 100%);
+}
+
+main {
+  min-height: 100vh;
+  padding: var(--space-xhuge) 0 var(--space-huge) 0;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.page-container {
+  padding: 0 var(--space-xhuge);
+  max-width: map-get($breakpoints, xxl);
+
+  @include breakpoint($from: 'lg', $until: 'xl') {
+    padding: 0 var(--space-huge);
+  }
+  @include breakpoint($until: 'lg') {
+    padding: 0 var(--space-xxxl);
+  }
+}

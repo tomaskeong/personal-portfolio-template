@@ -1,0 +1,38 @@
+@import '@styles/breakpoints';
+
+.colorPicker {
+  position: fixed;
+  top: var(--space-lg);
+  left: var(--space-lg);
+  display: flex;
+  flex-direction: column;
+  z-index: 1;
+
+  @include breakpoint($until: 'md') {
+    top: unset;
+    left: var(--space-sm);
+    bottom: var(--space-huge);
+    flex-direction: column-reverse;
+  }
+
+  .iconContainer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 35px;
+    height: 35px;
+    background: var(--color-elements-background);
+    border-radius: 50%;
+    cursor: pointer;
+    svg {
+      color: var(--color-main-primary);
+    }
+  }
+
+  .pickerContainer {
+    > div {
+      background: var(--color-elements-background) !important;
+      gap: 5px;
+    }
+  }
+}

@@ -1,70 +1,44 @@
-import styles from '@styles/Home.module.scss';
+import profilePicture from '@assets/images/profile-picture-male.jpg';
+import profilePictureCrop from '@assets/images/profile-picture-male-crop.jpg';
+import LoopedText from '@components/looped-text';
+import Grid from '@mui/material/Unstable_Grid2';
+import useMediaQuery from '@mui/material/useMediaQuery';
+import styles from '@styles/pages/Home.module.scss';
+import { mediaQueries } from '@utils/mediaQueries';
 import useDocTitle from 'hooks/useDocTitle';
+import Image from 'next/image';
 
 export default function Home() {
-  useDocTitle('Personal Portfolio - Home');
+  const isMd = useMediaQuery(mediaQueries.md);
+  useDocTitle('Home');
   return (
-    <div className={styles.container}>
-      <h1 className={styles.title}>
-        Hi, I&#39;m <span className={styles.name}>John Doe</span>
-      </h1>
-      {/*  <p className={styles.description}>
-        Get started by editing <code className={styles.code}>pages/index.tsx</code>
-      </p>
-      <div className={styles.grid}>
-        <a href="https://nextjs.org/docs" className={styles.card}>
-          <h2>Documentation &rarr;</h2>
-          <p>Find in-depth information about Next.js features and API.</p>
-        </a>
-
-        <a href="https://nextjs.org/learn" className={styles.card}>
-          <h2>Learn &rarr;</h2>
-          <p>Learn about Next.js in an interactive course with quizzes!</p>
-        </a>
-
-        <a href="https://github.com/vercel/next.js/tree/canary/examples" className={styles.card}>
-          <h2>Examples &rarr;</h2>
-          <p>Discover and deploy boilerplate example Next.js projects.</p>
-        </a>
-
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-          className={styles.card}
-        >
-          <h2>Deploy &rarr;</h2>
-          <p>Instantly deploy your Next.js site to a public URL with Vercel.</p>
-        </a>
-        <a href="https://github.com/vercel/next.js/tree/canary/examples" className={styles.card}>
-          <h2>Examples &rarr;</h2>
-          <p>Discover and deploy boilerplate example Next.js projects.</p>
-        </a>
-
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-          className={styles.card}
-        >
-          <h2>Deploy &rarr;</h2>
-          <p>Instantly deploy your Next.js site to a public URL with Vercel.</p>
-        </a>
-        <a href="https://github.com/vercel/next.js/tree/canary/examples" className={styles.card}>
-          <h2>Examples &rarr;</h2>
-          <p>Discover and deploy boilerplate example Next.js projects.</p>
-        </a>
-
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-          className={styles.card}
-        >
-          <h2>Deploy &rarr;</h2>
-          <p>Instantly deploy your Next.js site to a public URL with Vercel.</p>
-        </a>
-      </div> */}
-    </div>
+    <Grid container spacing={{ xs: 10 }} direction={`${!isMd ? 'row' : 'column-reverse'}`}>
+      <Grid xs={12} md={6} alignSelf="center">
+        <h1 className={`text--xxxl ${styles.greeting}`}>
+          Hi, I&#39;m <span className={styles.name}>John Doe</span>
+        </h1>
+        <h3 className={styles.loopedText}>
+          a <LoopedText text={['Developer', 'Web Designer', 'Music Enthusiast']} loopTiming={3} />
+        </h3>
+        <p className={styles.description}>
+          I work as a senior frontend developer, passionate about the whole frontend ecosystem and making pixel perfect designs with
+          excellent user experience. I focus on improving usability and simplifying users life, while always having high standards regarding
+          code quality and maintainability.
+        </p>
+      </Grid>
+      <Grid xs={12} md={6} display="flex" justifyContent="center">
+        <div className={styles.profilePicContainer}>
+          <Image
+            src={!isMd ? profilePicture : profilePictureCrop}
+            alt="Profile Picture"
+            fill
+            className={styles.profilePic}
+            draggable="false"
+            priority
+            sizes="100%"
+          />
+        </div>
+      </Grid>
+    </Grid>
   );
 }
