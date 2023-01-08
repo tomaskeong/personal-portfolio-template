@@ -12,7 +12,7 @@ export default function Home() {
   const isMd = useMediaQuery(mediaQueries.md);
   return (
     <Layout title="Home">
-      <Grid container spacing={{ sm: 15, md: 7 }} direction={`${!isMd ? 'row' : 'column-reverse'}`}>
+      <Grid container spacing={{ xs: 15, md: 7 }} direction={`${!isMd ? 'row' : 'column-reverse'}`}>
         <Grid xs={12} md={6} alignSelf="center">
           <h1 className={`text--xxxl ${styles.greeting}`}>
             Hi, I&#39;m <span className={styles.name}>John Doe</span>
