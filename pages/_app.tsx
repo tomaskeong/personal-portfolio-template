@@ -8,6 +8,7 @@ import { config } from '@fortawesome/fontawesome-svg-core';
 config.autoAddCss = false;
 import ColorPicker from '@components/color-picker';
 import ThemeProvider from 'context/Theme';
+import { AnimatePresence, motion } from 'framer-motion';
 import type { AppProps } from 'next/app';
 import dynamic from 'next/dynamic';
 import Head from 'next/head';
@@ -33,11 +34,11 @@ export default function App({ Component, pageProps }: AppProps) {
           <ThemeSwitch />
           <ColorPicker />
         </header>
-        <main>
-          <div className="page-container">
+        <AnimatePresence mode="wait" onExitComplete={() => window.scrollTo(0, 0)}>
+          <main>
             <Component {...pageProps} />
-          </div>
-        </main>
+          </main>
+        </AnimatePresence>
       </ThemeProvider>
     </>
   );
